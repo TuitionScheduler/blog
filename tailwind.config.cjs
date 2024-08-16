@@ -10,7 +10,9 @@ module.exports = {
         },
         extend: {
             textColor: {
-                main: 'rgb(var(--color-text-main) / <alpha-value>)'
+                main: 'rgb(var(--color-text-main) / <alpha-value>)',
+                link: '#1D4ED8', // Bright blue color for links
+                'link-hover': '#1E40AF' // Darker blue for hover state
             },
             backgroundColor: {
                 main: 'rgb(var(--color-bg-main) / <alpha-value>)',
@@ -25,7 +27,7 @@ module.exports = {
                         '--tw-prose-body': theme('textColor.main / 100%'),
                         '--tw-prose-headings': theme('textColor.main / 100%'),
                         '--tw-prose-lead': theme('textColor.main / 100%'),
-                        '--tw-prose-links': theme('textColor.main / 100%'),
+                        '--tw-prose-links': theme('textColor.link'),
                         '--tw-prose-bold': theme('textColor.main / 100%'),
                         '--tw-prose-counters': theme('textColor.main / 100%'),
                         '--tw-prose-bullets': theme('textColor.main / 100%'),
@@ -48,7 +50,9 @@ module.exports = {
                             textDecorationStyle: 'dashed',
                             textDecorationThickness: '1px',
                             textUnderlineOffset: '2px',
+                            color: theme('textColor.link'),
                             '&:hover': {
+                                color: theme('textColor.link-hover'),
                                 textDecorationStyle: 'solid'
                             }
                         },
