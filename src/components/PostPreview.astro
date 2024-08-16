@@ -6,7 +6,7 @@ import FormattedDate from './FormattedDate.astro';
 type Props = { post: CollectionEntry<'blog'>; class?: string; headingLevel?: 'h2' | 'h3' };
 
 const { post, class: className, headingLevel = 'h2' } = Astro.props;
-const { title, publishDate, updatedDate, excerpt } = post.data;
+const { title, author, publishDate, updatedDate, excerpt } = post.data;
 const TitleTag = headingLevel;
 ---
 
@@ -18,7 +18,7 @@ const TitleTag = headingLevel;
             {title}
         </TitleTag>
         <div class="mt-1 text-sm leading-normal">
-            <FormattedDate date={publishDate} />
+            <span>By {author}</span> | <FormattedDate date={publishDate} />
             {
                 updatedDate && (
                     <>
