@@ -25,7 +25,7 @@ type Props = { post: CollectionEntry<'blog'>; prevPost: CollectionEntry<'blog'>;
 
 const { href } = Astro.url;
 const { post, prevPost, nextPost } = Astro.props;
-const { title, publishDate, updatedDate, excerpt, tags = [], seo } = post.data;
+const { title, publishDate, updatedDate, excerpt, tags = [], seo, author } = post.data;
 const { Content } = await post.render();
 ---
 
@@ -34,7 +34,7 @@ const { Content } = await post.render();
         <header class="mb-8">
             <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{title}</h1>
             <div class="mt-4 text-sm">
-                <FormattedDate date={publishDate} />
+                <span>By {author}</span> | <FormattedDate date={publishDate} />
                 {
                     updatedDate && (
                         <>
